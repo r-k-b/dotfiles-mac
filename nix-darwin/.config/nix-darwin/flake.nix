@@ -5,9 +5,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nvimconf = {
+      url = "github:r-k-b/nvimconf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nvimconf }:
     let
       # see available config options at https://daiderd.com/nix-darwin/manual/index.html
       configuration = { pkgs, ... }: {
@@ -19,9 +23,9 @@
           git
           nixfmt
           nushell
+          nvimconf.packages.aarch64-darwin.default
           stow
           tldr
-          vim
           zoxide
         ];
 
