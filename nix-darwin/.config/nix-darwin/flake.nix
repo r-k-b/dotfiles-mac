@@ -9,6 +9,7 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs }:
     let
+      # see available config options at https://daiderd.com/nix-darwin/manual/index.html
       configuration = { pkgs, ... }: {
         # List packages installed in system profile. To search by name, run:
         # $ nix-env -qaP | grep wget
