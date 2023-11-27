@@ -15,6 +15,12 @@
     let
       # see available config options at https://daiderd.com/nix-darwin/manual/index.html
       configuration = { pkgs, ... }: {
+
+        # workaround the stow symlinks at the default location not being read by `darwin-rebuild`.
+        # Saves having to write out `darwin-rebuild switch --flake ~/dotfiles/nix-darwin/.config/nix-darwin` every time.
+        # (Still need the `--flake` arg, tho.)
+        environment.darwinConfig = "$HOME/dotfiles/nix-darwin/.config/nix-darwin/";
+
         # List packages installed in system profile. To search by name, run:
         # $ nix-env -qaP | grep wget
         environment.systemPackages = with pkgs; [
