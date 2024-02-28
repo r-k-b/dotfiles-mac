@@ -32,6 +32,7 @@
           broot
           direnv
           git
+          nix-output-monitor
           nixfmt
           nushell
           nvimconf.packages.aarch64-darwin.default
