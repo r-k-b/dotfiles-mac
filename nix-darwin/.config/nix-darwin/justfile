@@ -1,0 +1,6 @@
+switch:
+	darwin-rebuild switch --flake ~/dotfiles/nix-darwin/.config/nix-darwin
+
+test:
+	darwin-rebuild test --flake ~/dotfiles/nix-darwin/.config/nix-darwin
+
