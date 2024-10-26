@@ -30,10 +30,12 @@
         # $ nix-env -qaP | grep wget
         environment.systemPackages = with pkgs; [
           broot
+          coreutils
           direnv
           git
+          just
           nix-output-monitor
-          nixfmt
+          nixfmt-classic
           nushell
           nvimconf.packages.aarch64-darwin.default
           stow
