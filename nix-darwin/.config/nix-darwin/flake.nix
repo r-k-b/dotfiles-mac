@@ -40,6 +40,7 @@
           nvimconf.packages.aarch64-darwin.default
           stow
           tldr
+          tmux # in case ssh is disconnected
           zoxide
         ];
 
