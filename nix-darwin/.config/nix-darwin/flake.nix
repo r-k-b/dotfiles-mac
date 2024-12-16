@@ -54,6 +54,7 @@
         # Create /etc/zshrc that loads the nix-darwin environment.
         programs.zsh.enable = true; # default shell on catalina
         # programs.fish.enable = true;
+        # support for nushell as default would be nice... https://github.com/LnL7/nix-darwin/issues/1028
 
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
