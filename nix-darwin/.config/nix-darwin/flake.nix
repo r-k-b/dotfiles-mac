@@ -15,6 +15,9 @@
     let
       # see available config options at https://daiderd.com/nix-darwin/manual/index.html
       configuration = { pkgs, ... }: {
+        # let nix-darwin handle the Mac concerns
+        # https://determinate.systems/posts/nix-darwin-updates/
+	nix.enable = false;
 
         # workaround the stow symlinks at the default location not being read by `darwin-rebuild`.
         # Saves having to write out `darwin-rebuild switch --flake ~/dotfiles/nix-darwin/.config/nix-darwin` every time.
@@ -43,10 +46,6 @@
           tmux # in case ssh is disconnected
           zoxide
         ];
-
-        # Auto upgrade nix package and the daemon service.
-        services.nix-daemon.enable = true;
-        # nix.package = pkgs.nix;
 
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
